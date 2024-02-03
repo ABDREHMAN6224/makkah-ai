@@ -58,13 +58,13 @@ const locationSchema = new mongoose.Schema({
 locationSchema.index({ startingLocation: "2dsphere" });
 locationSchema.index({ name: "text" });
 
-// locationSchema.methods.getNeighbours = async function () {
-//   const location = await this.model("Location").findById(this._id).populate({
-//     path: "neighbours.location",
-//     // select: "name  capacity category floor  accessibility",
-//   });
-//   return location.neighbours;
-// };
+locationSchema.methods.getNeighbours = async function () {
+  const location = await this.model("Location").findById(this._id).populate({
+    path: "neighbours.location",
+    // select: "name  capacity category floor  accessibility",
+  });
+  return location.neighbours;
+};
 
 // locationSchema.methods.getNeighbour = async function (neighbourId) {
 //     const location = await this.model("Location").findById(this._id).populate({
