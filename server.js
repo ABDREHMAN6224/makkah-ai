@@ -123,7 +123,10 @@ app.get("/assignNeighboursExactDustances", async (req, res) => {
 //     res.json(allLocations);
 // })
 
-connectDb();
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
-});
+connectDb().then(()=>{
+
+    app.listen(3000, () => {
+        console.log("Server is running on port 3000");
+    });
+}
+);
