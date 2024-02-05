@@ -66,13 +66,13 @@ locationSchema.methods.getNeighbours = async function () {
   return location.neighbours;
 };
 
-// locationSchema.methods.getNeighbour = async function (neighbourId) {
-//     const location = await this.model("Location").findById(this._id).populate({
-//         path: "neighbours.location",
-//         // select: "name   capacity category floor  accessibility",
-//     });
-//     return location.neighbours.find((neighbour) => neighbour.location._id == neighbourId);
-// };
+locationSchema.methods.getNeighbour = async function (neighbourId) {
+    const location = await this.model("Location").findById(this._id).populate({
+        path: "neighbours.location",
+        // select: "name   capacity category floor  accessibility",
+    });
+    return location.neighbours.find((neighbour) => neighbour.location._id == neighbourId);
+};
 
 // locationSchema.pre("find", async function (next) {
 //   this.populate({

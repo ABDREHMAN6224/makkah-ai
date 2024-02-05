@@ -23,6 +23,12 @@ app.get("/", async (req, res) => {
         path:"neighbours.location",
         select:"name capacity category floor accessibility"
     });
+
+    const adjacencyListOfGraphOfLocations={};
+    allLocations.forEach((location)=>{
+        adjacencyListOfGraphOfLocations[location.name]=location.neighbours;
+    });
+    // res.json(adjacencyListOfGraphOfLocations);
     res.json(allLocations);
 })
 
